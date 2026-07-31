@@ -1,0 +1,20 @@
+default-rule-path: /var/lib/suricata/rules
+
+rule-files:
+  - suricata.rules
+  - custom.rules
+
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+
+      types:
+        - alert
+        - dns
+        - http
+        - tls
+        - ssh
+        - flow
+        - stats
