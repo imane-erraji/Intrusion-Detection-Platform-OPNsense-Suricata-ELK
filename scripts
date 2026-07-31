@@ -1,1 +1,22 @@
+scripts/
 
+telegram_alert.py
+
+install_elk.sh
+#!/bin/bash
+
+sudo apt update
+
+sudo apt install elasticsearch -y
+sudo apt install logstash -y
+sudo apt install kibana -y
+
+sudo systemctl enable elasticsearch
+sudo systemctl enable logstash
+sudo systemctl enable kibana
+
+sudo systemctl start elasticsearch
+sudo systemctl start logstash
+sudo systemctl start kibana
+
+echo "ELK installation completed."
