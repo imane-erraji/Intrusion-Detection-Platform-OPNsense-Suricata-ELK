@@ -1,190 +1,93 @@
-# Network Intrusion Detection Platform using OPNsense, Suricata & ELK Stack
+# 🛡️ Network Intrusion Detection Platform using OPNsense, Suricata and ELK Stack
 
-<p align="center">
-
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+![License](https://img.shields.io/badge/License-MIT-green)
 ![Platform](https://img.shields.io/badge/Platform-VMware-blue)
 ![Firewall](https://img.shields.io/badge/Firewall-OPNsense-orange)
 ![IDS](https://img.shields.io/badge/IDS-Suricata-red)
-![SIEM](https://img.shields.io/badge/SIEM-Elastic%20Stack-yellow)
+![Elastic Stack](https://img.shields.io/badge/Elastic-8.19.16-yellow)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-</p>
+A virtualized Network Intrusion Detection and Security Monitoring Platform developed as a Final Year Project (PFE). The platform combines **OPNsense**, **Suricata IDS**, and the **Elastic Stack (Elasticsearch, Logstash, and Kibana)** to detect, centralize, analyze, and visualize security events in real time. A Telegram notification system provides instant alerts for critical events.
 
 ---
 
-## Project Overview
+# 📌 Project Overview
 
-This project presents the design and implementation of a **Network Intrusion Detection and Monitoring Platform** built entirely with open-source technologies.
+Modern organizations require continuous monitoring of their networks to detect malicious activities before they become security incidents. This project demonstrates how an entirely open-source security monitoring platform can be deployed in a virtualized environment.
 
-The platform combines:
-
-- **OPNsense** as the firewall and network gateway
-- **Suricata IDS** for real-time intrusion detection
-- **Elastic Stack (ELK)** for centralized log management and visualization
-- **Telegram Bot API** for instant security notifications
-
-The entire infrastructure was deployed in a virtual laboratory using **VMware Workstation** and validated through multiple penetration testing scenarios performed with Kali Linux.
-
-The objective is to provide a lightweight Security Operations Center (SOC)-like environment capable of monitoring network traffic, detecting malicious activities, visualizing security events, and notifying administrators in real time.
+The platform captures network traffic, detects attacks using Suricata IDS, processes security events with Logstash, stores them in Elasticsearch, visualizes them in Kibana dashboards, and automatically sends Telegram notifications for critical alerts.
 
 ---
 
-# Project Highlights
+# 🏗️ Platform Architecture
 
-- Real-time network traffic inspection
-- Open-source SOC architecture
-- Intrusion Detection with Suricata
-- Centralized log collection
-- Elasticsearch indexing
-- Logstash processing pipelines
-- Kibana dashboards
-- Custom Suricata detection rules
-- Telegram alert automation
-- Multiple attack simulations
-- VMware virtual laboratory
-- MITRE ATT&CK mapping
-- Cyber Kill Chain analysis
+> Replace the image below with your final architecture diagram.
+
+![Network Topology](images/architecture/network-topology.png)
 
 ---
 
-# Architecture
+# 🚀 Features
 
-> Replace the image below with your architecture diagram.
-
-<p align="center">
-
-![Architecture](images/architecture/network-topology.png)
-
-</p>
+- OPNsense Firewall Configuration
+- Suricata Intrusion Detection System (IDS)
+- Custom Detection Rules
+- Centralized Log Collection
+- Log Processing with Logstash
+- Elasticsearch Indexing
+- Kibana Dashboards
+- Real-Time Security Monitoring
+- Telegram Alert Notifications
+- Nmap Attack Detection
+- ICMP Detection
+- SSH Brute Force Detection
+- VMware Virtual Laboratory
 
 ---
 
-# Infrastructure
+# 🖥️ Virtual Laboratory
 
-The laboratory environment consists of four virtual machines.
-
-| Machine | Operating System | Purpose |
-|----------|-----------------|----------|
-| OPNsense | OPNsense 26.1.6 | Firewall + IDS |
-| ELK Server | Ubuntu Server 24.04 LTS | Elasticsearch + Logstash + Kibana |
+| Virtual Machine | Operating System | Purpose |
+|-----------------|------------------|----------|
+| OPNsense | OPNsense 26.1.6 | Firewall & Gateway |
+| ELK Server | Ubuntu Server 24.04 LTS | Elasticsearch, Logstash, Kibana |
 | Kali Linux | Kali Rolling | Attack Simulation |
 | Windows 10 | Windows 10 | Victim Machine |
 
 ---
 
-# Technology Stack
+# ⚙️ Technologies Used
 
 | Category | Technology |
-|-----------|------------|
-| Firewall | OPNsense |
+|----------|------------|
+| Firewall | OPNsense 26.1.6 |
 | IDS | Suricata |
-| Search Engine | Elasticsearch |
-| Log Processing | Logstash |
-| Visualization | Kibana |
-| Operating System | Ubuntu Server 24.04 |
+| SIEM | Elasticsearch 8.19.16 |
+| Log Processing | Logstash 8.19.16 |
+| Dashboard | Kibana 8.19.16 |
+| Operating System | Ubuntu Server 24.04 LTS |
 | Virtualization | VMware Workstation |
+| Attacker Machine | Kali Linux |
+| Victim Machine | Windows 10 |
 | Notifications | Telegram Bot API |
-| Testing | Kali Linux |
-| Victim | Windows 10 |
 
 ---
 
-# Detection Workflow
-
-```
-Internet
-
-      │
-
-      ▼
-
-OPNsense Firewall
-
-      │
-
-      ▼
-
-Suricata IDS
-
-      │
-
-Detects Security Events
-
-      │
-
-      ▼
-
-Logstash
-
-      │
-
-Processes Logs
-
-      ▼
-
-Elasticsearch
-
-      │
-
-Indexes Events
-
-      ▼
-
-Kibana
-
-      │
-
-Dashboards
-
-      ▼
-
-Telegram Alerts
-```
-
----
-
-# Features
-
-### Network Security
-
-- Stateful firewall
-- Network segmentation
-- Traffic monitoring
-- Intrusion Detection
-- Custom Suricata signatures
-
-### SIEM
-
-- Centralized log collection
-- Event normalization
-- Elasticsearch indexing
-- Kibana dashboards
-- Security event visualization
-
-### Alerting
-
-- Telegram Bot integration
-- Instant notifications
-- Critical attack alerts
-
-### Testing
-
-- Nmap scans
-- Hydra SSH brute force
-- ICMP flood detection
-- Custom IDS rule validation
-
----
-
-# Repository Structure
+# 📂 Repository Structure
 
 ```
 Intrusion-Detection-Platform-OPNsense-Suricata-ELK
 │
-├── configs/
+├── README.md
+├── LICENSE
+├── .gitignore
 │
-├── diagrams/
+├── configs/
+│   ├── elasticsearch.yml
+│   ├── kibana.yml
+│   ├── logstash.conf
+│   ├── suricata.yaml
+│   └── telegram-alert.service
 │
 ├── docs/
 │   ├── INSTALLATION.md
@@ -192,138 +95,147 @@ Intrusion-Detection-Platform-OPNsense-Suricata-ELK
 │   ├── CONFIGURATION.md
 │   ├── ATTACK_SIMULATIONS.md
 │   ├── DASHBOARDS.md
+│   ├── CUSTOM_RULES.md
 │   ├── TELEGRAM_ALERTS.md
-│   └── PFE_Report.pdf
+│   ├── PERFORMANCE.md
+│   └── TROUBLESHOOTING.md
 │
+├── diagrams/
 ├── images/
-│
 ├── rules/
-│
-├── scripts/
-│
-├── README.md
-│
-├── LICENSE
-│
-└── .gitignore
+└── scripts/
 ```
 
 ---
 
-# Attack Scenarios
-
-The platform has been validated using several penetration testing techniques.
-
-| Attack | Tool | Detection |
-|---------|------|-----------|
-| Port Scan | Nmap | Suricata |
-| SSH Brute Force | Hydra | Suricata |
-| ICMP Flood | Ping | Suricata |
-| Custom Signature | Custom Rule | Suricata |
-
----
-
-# Dashboards
-
-Kibana dashboards provide:
-
-- Network events
-- Source IP statistics
-- Destination IP statistics
-- Alert severity
-- Top attack signatures
-- Timeline analysis
-- Protocol distribution
-
-Example screenshots are available inside:
+# 🔥 Attack Workflow
 
 ```
-images/dashboards/
+Attack
+      │
+      ▼
+ Suricata IDS
+      │
+      ▼
+   Logstash
+      │
+      ▼
+ Elasticsearch
+      │
+      ▼
+    Kibana
+      │
+      ▼
+Telegram Alert
 ```
 
 ---
 
-# Telegram Notifications
+# 📊 Screenshots
 
-Whenever a critical Suricata alert is generated, a notification is automatically sent to Telegram.
+## Network Topology
 
-Example:
-
-```
-⚠️ Intrusion Detected
-
-Rule:
-ET SCAN Nmap
-
-Source:
-192.168.100.20
-
-Destination:
-192.168.100.10
-
-Priority:
-High
-
-Timestamp:
-2026-05-18 21:41:12
-```
+![Topology](images/architecture/network-topology.png)
 
 ---
 
-# Project Documentation
+## OPNsense Dashboard
 
-Detailed documentation is available inside the **docs** directory.
+![OPNsense](images/opnsense/dashboard.jpg)
+
+---
+
+## Kibana Dashboard
+
+![Dashboard](images/dashboards/overview.png)
+
+---
+
+## Kibana Discover
+
+![Discover](images/dashboards/discover.jpg)
+
+---
+
+## Telegram Alert
+
+![Telegram](images/telegram/telegram-alert.jpg)
+
+---
+
+# 📈 Project Results
+
+The implemented platform successfully demonstrated the following capabilities:
+
+- Detection of ICMP traffic
+- Detection of SSH connection attempts
+- Detection of Nmap reconnaissance
+- Centralized log collection
+- Security event visualization
+- Real-time Telegram notifications
+- Continuous monitoring of network traffic
+- Efficient analysis through Kibana dashboards
+
+---
+
+# 📖 Documentation
+
+Detailed documentation is available in the `docs/` directory.
 
 | Document | Description |
 |----------|-------------|
-| INSTALLATION.md | Installation guide |
-| ARCHITECTURE.md | Platform architecture |
-| CONFIGURATION.md | Component configuration |
-| ATTACK_SIMULATIONS.md | Penetration testing |
-| DASHBOARDS.md | Kibana dashboards |
-| TELEGRAM_ALERTS.md | Telegram integration |
+| INSTALLATION.md | Installation Guide |
+| ARCHITECTURE.md | Platform Architecture |
+| CONFIGURATION.md | System Configuration |
+| ATTACK_SIMULATIONS.md | Attack Scenarios |
+| DASHBOARDS.md | Kibana Dashboards |
+| CUSTOM_RULES.md | Suricata Rules |
+| TELEGRAM_ALERTS.md | Telegram Integration |
+| PERFORMANCE.md | Performance Evaluation |
+| TROUBLESHOOTING.md | Common Issues |
 
 ---
 
-# Future Improvements
+# ⚡ Quick Start
 
-Future versions may include:
+Clone the repository:
 
-- Zeek Network Security Monitor
-- Wazuh SIEM integration
-- Elastic Security
-- Sigma rule support
-- MITRE ATT&CK dashboards
-- Docker deployment
-- High Availability architecture
-- Machine Learning anomaly detection
+```bash
+git clone https://github.com/imane-erraji/Intrusion-Detection-Platform-OPNsense-Suricata-ELK.git
+```
 
----
+Configure:
 
-# Learning Objectives
+- OPNsense
+- Suricata IDS
+- Logstash
+- Elasticsearch
+- Kibana
 
-This project demonstrates practical experience with:
+Import the provided configurations and custom rules.
 
-- Network Security
-- Security Monitoring
-- Intrusion Detection Systems
-- SIEM Platforms
-- Log Analysis
-- Firewall Administration
-- Linux Administration
-- VMware Virtualization
-- Incident Detection
-- SOC Operations
+Run the attack simulations described in `ATTACK_SIMULATIONS.md`.
+
+Open Kibana and monitor the generated events.
 
 ---
 
-# Author
+# 📌 Future Improvements
+
+- Docker Deployment
+- High Availability Architecture
+- Threat Intelligence Integration
+- Email Notifications
+- Machine Learning-Based Detection
+- Automated Incident Response
+
+---
+
+# 👩‍💻 Author
 
 **Imane Erraji**
 
-Engineering Student
-
-Network & Systems Security
+Engineering Student – Network & Systems Security
 
 École Nationale des Sciences Appliquées (ENSA)
 
@@ -331,27 +243,6 @@ Morocco
 
 ---
 
-# License
+# ⭐ Support
 
-This project is licensed under the MIT License.
-
-See the **LICENSE** file for more information.
-
----
-
-## Acknowledgments
-
-Special thanks to:
-
-- ENSA Berrechid
-- BakerTilly Consulting Casablanca
-- The Open-Source Cybersecurity Community
-- OPNsense Project
-- Suricata Project
-- Elastic Stack Community
-
----
-
-> **Disclaimer**
->
-> This project was developed for educational and research purposes in a controlled laboratory environment. All attack simulations were performed on isolated virtual machines owned and managed by the project author.
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
